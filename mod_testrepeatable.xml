@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+    <name>mod_testrepeatable</name>
+    <author>Niels Nübel</author>
+    <creationDate>June 2016</creationDate>
+    <copyright>Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>niels@niels-nuebel.de</authorEmail>
+    <authorUrl>www.niels-nuebel.de</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_TESTREPEATABLE_XML_DESCRIPTION</description>
+
+    <files>
+        <filename module="mod_testrepeatable">mod_testrepeatable.php</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="items"
+                       type="repeatable"
+                       icon="list"
+                       description="MOD_TESTREPEATABLE_ITEMS_DESC"
+                       label="MOD_TESTREPEATABLE_ITEMS_LABEL"
+                       default=""
+                       maximum="3"
+                >
+                    <fields name="params">
+                        <fieldset hidden="true" name="items_modal" repeat="true">
+                            <field name="item_title"
+                                   type="text"
+                                   size="40"
+                                   label="MOD_TESTREPEATABLE_ITEM_TITLE_LABEL"
+                                   description="MOD_TESTREPEATABLE_ITEM_TITLE_DESC"
+                            />
+                            <field  name="item_image"
+                                    type="media"
+                                    label="MOD_TESTREPEATABLE_ITEM_IMAGE_LABEL"
+                                    description="MOD_TESTREPEATABLE_ITEM_IMAGE_DESC"
+                                    preview="true"
+                            />
+                        </fieldset>
+                    </fields>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="JFIELD_ALT_LAYOUT_LABEL"
+                        description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+                />
+
+                <field
+                        name="moduleclass_sfx"
+                        type="textarea"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                        rows="3"
+                />
+
+                <field
+                        name="cache"
+                        type="list"
+                        label="COM_MODULES_FIELD_CACHING_LABEL"
+                        description="COM_MODULES_FIELD_CACHING_DESC"
+                        default="1"
+                >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+
+                <field
+                        name="cache_time"
+                        type="text"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+                        default="900"
+                />
+
+                <field
+                        name="cachemode"
+                        type="hidden"
+                        default="static"
+                >
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
